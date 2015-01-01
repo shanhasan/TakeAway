@@ -4,7 +4,7 @@ describe Menu do
   
   let(:menu) {Menu.new}
   let(:chicken) {double :dish}
-  let(:beef) (double :dish)
+  let(:beef) {double :dish}
 
   it 'should let dishes be added to the list' do
     menu.add(chicken)

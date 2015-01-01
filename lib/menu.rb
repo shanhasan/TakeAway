@@ -1,1 +1,3 @@
-menu.rb
+class Menu
+
+end

@@ -1,1 +1,7 @@
-order.rb
+class Order
+
+def initialize
+  @items = []
+end
+
+end

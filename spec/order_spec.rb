@@ -3,20 +3,15 @@ require 'order.rb'
 describe Order do
 
   let(:order) {Order.new}
-  let(:chicken) {double :dish}
-  let(:beef) {double :dish}
-
-  def sample_order
-    order.add(chicken)
-    order.remove(chicken)
-  end
+  let(:chicken) {double :dish, price: 4}
+  let(:beef) {double :dish, price: 5}
   
   it 'should start of empty' do 
     expect(order.items).to eq []
   end
 
   it 'the bill should be zero' do
-    expect(order.total).to eq 0
+    expect(order.total).to eq nil
   end
 
   it "should be able to add a dish" do
@@ -25,18 +20,21 @@ describe Order do
   end
 
   it 'should let you remove a dish' do
-    sample_order
+    order.add(chicken)
+    order.remove(chicken)
     expect(order.items).to eq []
   end
 
   it 'should let you know the current total' do
-    sample_order
-    expect(order.total).to eq 7.50
+    order.add(chicken)
+    order.add(beef)
+    expect(order.total).to eq 9
   end
 
   it "should let you see the order list" do
-    sample_order
-    expect(order.show).to eq [chicken, beef]
+    order.add(chicken)
+    order.add(beef)
+    expect(order.list).to eq [chicken, beef]
   end
 
 end
